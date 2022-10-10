@@ -14,12 +14,17 @@
   --main-white: #fdfffa;
   --main-red: #e01b2c;
   --main-black: #040404;
-  --main-grey: #d9d9d979;
+
+  --fade-grey: #d9d9d9e7;
+  --fade-red: #e01b2b59;
 
   --nav-btn-width: clamp(8rem, 8vw, 10rem);
   --nav-btn-height: clamp(3rem, 4vw, 3.8rem);
   --nav-btn-font-size: clamp(1.5rem, 1.8vw, 2rem);
-  --cmpny-title-font-size: clamp(3rem, 5vw, 6rem);
+  --nav-bar-title-font-size: clamp(3rem, 5vw, 6rem);
+
+  --nav-menu-btn-font-size: clamp(1.8rem, 1.8vw, 2rem);
+  --nav-menu-title-font-size: clamp(3.5rem, 5vw, 4rem);
 }
 
 *,
@@ -44,6 +49,10 @@ html {
 .holder {
   display: flex;
   align-items: center;
+}
+.line-break {
+  height: 0.3rem;
+  background: var(--main-red);
 }
 
 nav {
@@ -77,16 +86,16 @@ nav > .frame {
   color: var(--main-white);
   cursor: pointer;
 }
-.holder.cmpny-title {
+.holder.nav-bar-title {
   width: max(48vw, 20rem);
   justify-content: center;
   position: relative;
   right: clamp(0rem, 2vw, 2rem);
 }
-.title {
+.holder.nav-bar-title > .title {
   font-family: "Kaushan Script", Cambria, Cochin, Georgia, Times,
     "Times New Roman", serif;
-  font-size: var(--cmpny-title-font-size);
+  font-size: var(--nav-bar-title-font-size);
 }
 .holder.link-btns {
   width: max(20vw, 25rem);
@@ -104,11 +113,8 @@ nav > .frame {
   border-radius: 5rem;
 }
 .holder.link-btns > .github-btn:hover,
-.holder.link-btns > .github-btn:hover > svg,
 .holder.link-btns > .github-btn:focus,
-.holder.link-btns > .github-btn:focus > svg,
-.holder.link-btns > .github-btn:active,
-.holder.link-btns > .github-btn:active > svg {
+.holder.link-btns > .github-btn:active {
   background: var(--main-red);
   fill: var(--main-white);
   cursor: pointer;
@@ -159,11 +165,144 @@ nav > .frame {
   .holder.nav-btns > .loca-btn {
     display: none;
   }
-  .holder.cmpny-title {
+  .holder.nav-bar-title {
     width: 100%;
     position: static;
   }
   .holder.link-btns {
     display: none;
   }
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  transform: translate(100vw, 0);
+  background: var(--fade-grey);
+  z-index: 1;
+}
+.nav-menu {
+  padding: 1rem;
+  width: min(80%, 32rem);
+  height: 100%;
+  position: fixed;
+  right: 0;
+  transform: translate(100vw, 0);
+  background: var(--main-white);
+  z-index: 1;
+}
+.active {
+  transform: translate(0vw, 0);
+  transition: transform 750ms ease-in-out;
+}
+.nav-menu > .close-menu-btn {
+  width: 4rem;
+  height: 4rem;
+  position: absolute;
+  top: 1.2rem;
+  left: -5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--main-white);
+  border-radius: 2rem;
+}
+.nav-menu > .close-menu-btn:hover,
+.nav-menu > .close--menu-btn:focus,
+.nav-menu > .close--menu-btn:active {
+  background: var(--main-red);
+  fill: var(--main-white);
+  cursor: pointer;
+}
+.holder.nav-menu-title {
+  width: 100%;
+  height: 10rem;
+  justify-content: center;
+}
+.holder.nav-menu-title > .title {
+  font-family: "Kaushan Script", Cambria, Cochin, Georgia, Times,
+    "Times New Roman", serif;
+  font-size: var(--nav-menu-title-font-size);
+}
+.holder.nav-menu-btns,
+.holder.link-menu-btns {
+  flex-flow: column wrap;
+}
+.holder.nav-menu-btns > button {
+  width: 100%;
+  height: 5rem;
+  display: flex;
+  align-items: center;
+  background: var(--main-white);
+  font-family: "Kaushan Script", Cambria, Cochin, Georgia, Times,
+    "Times New Roman", serif;
+  font-size: var(--nav-menu-btn-font-size);
+}
+.holder.nav-menu-btns > button:hover,
+.holder.nav-menu-btns > button:focus,
+.holder.nav-menu-btns > button:active {
+  background: var(--main-red);
+  color: var(--main-white);
+  fill: var(--main-white);
+  cursor: pointer;
+}
+.holder.nav-menu-btns > .home-btn > svg,
+.holder.nav-menu-btns > .home-btn > span,
+.holder.nav-menu-btns > .menu-btn > svg,
+.holder.nav-menu-btns > .menu-btn > span,
+.holder.nav-menu-btns > .loca-btn > svg,
+.holder.nav-menu-btns > .loca-btn > span {
+  margin-left: 2rem;
+}
+
+.holder.link-menu-btns > .github-btn {
+  width: 100%;
+  height: 5rem;
+  display: flex;
+  align-items: center;
+  background: var(--main-white);
+  color: var(--main-black);
+  text-decoration: none;
+  font-family: "Kaushan Script", Cambria, Cochin, Georgia, Times,
+    "Times New Roman", serif;
+  font-size: var(--nav-menu-btn-font-size);
+}
+.holder.link-menu-btns > .order-btn {
+  width: 100%;
+  height: 5rem;
+  display: flex;
+  align-items: center;
+  background: var(--main-white);
+  color: var(--main-red);
+  fill: var(--main-red);
+  font-family: "Kaushan Script", Cambria, Cochin, Georgia, Times,
+    "Times New Roman", serif;
+  font-size: var(--nav-menu-btn-font-size);
+}
+.holder.link-menu-btns > .github-btn:hover,
+.holder.link-menu-btns > .github-btn:focus,
+.holder.link-menu-btns > .github-btn:active {
+  background: var(--main-red);
+  color: var(--main-white);
+  fill: var(--main-white);
+  cursor: pointer;
+}
+.holder.link-menu-btns > .order-btn:hover,
+.holder.link-menu-btns > .order-btn:focus,
+.holder.link-menu-btns > .order-btn:active {
+  background: var(--main-red);
+  color: var(--main-white);
+  fill: var(--main-white);
+  cursor: pointer;
+}
+.holder.link-menu-btns > .github-btn > svg,
+.holder.link-menu-btns > .github-btn > span {
+  margin-left: 3.5rem;
+}
+.holder.link-menu-btns > .order-btn > svg,
+.holder.link-menu-btns > .order-btn > span {
+  margin-left: 2.8rem;
 }
