@@ -62,6 +62,7 @@ nav {
   width: 100%;
   height: 10rem;
   position: fixed;
+  background: var(--main-white);
 }
 nav > .frame {
   justify-content: space-between;
@@ -310,4 +311,18 @@ nav > .frame {
 .holder.link-menu-btns > .order-btn > svg,
 .holder.link-menu-btns > .order-btn > span {
   margin-left: 2.8rem;
+}
+
+footer {
+  width: 100%;
+  height: 10rem;
+  background: var(--main-white);
+}
+footer > .frame {
+  justify-content: center;
+}
+.holder.footer-text {
+  text-align: center;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: clamp(1.2rem, 1.8vw, 1.5rem);
 }
