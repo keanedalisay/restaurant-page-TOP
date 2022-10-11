@@ -39,6 +39,9 @@
 html {
   font-size: 10px;
 }
+svg {
+  pointer-events: none;
+}
 
 .frame {
   padding: 1rem;
@@ -194,8 +197,10 @@ nav > .frame {
   background: var(--main-white);
   z-index: 1;
 }
-.active {
+.show-nav-menu {
   transform: translate(0vw, 0);
+}
+.anim {
   transition: transform 750ms ease-in-out;
 }
 .nav-menu > .close-menu-btn {

@@ -9,12 +9,13 @@
         content="Roberto's! Iloilo's go-to Chinese restaurant famous for its Queen Siopao and other items.">
     <link rel="shortcut icon" href="../img/roberto's-icon.png">
     <link type="text/css" rel="stylesheet" href="../styles/style.css">
+    <script type="module" src="../src/app.js" defer></script>
 </head>
 
 <body>
     <div>
-        <div class="overlay"></div>
-        <div class="nav-menu">
+        <div class="anim overlay" data-app="overlay"></div>
+        <div class="anim nav-menu" data-app="nav-menu">
             <div class="close-menu-btn" data-app="close-menu-btn" tabindex="0">
                 <svg width="30" height="30" version="1.1" viewBox="0 0 752 752" xmlns="http://www.w3.org/2000/svg">
                     <path
@@ -83,7 +84,7 @@
             </div>
         </div>
     </div>
-    <nav>
+    <nav data-app="nav-bar">
         <div class="frame">
             <div class="holder nav-btns">
                 <div class="nav-menu-btn" data-app="nav-menu-btn" tabindex="0">
