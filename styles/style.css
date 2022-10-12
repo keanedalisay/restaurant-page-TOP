@@ -16,12 +16,12 @@
   --main-black: #040404;
 
   --fade-grey: #d9d9d9e7;
-  --fade-red: #e01b2b59;
+  --fade-red: #e01b2ba1;
 
   --nav-btn-width: clamp(8rem, 8vw, 10rem);
   --nav-btn-height: clamp(3rem, 4vw, 3.8rem);
   --nav-btn-font-size: clamp(1.5rem, 1.8vw, 2rem);
-  --nav-bar-title-font-size: clamp(3rem, 5vw, 6rem);
+  --nav-bar-title-font-size: clamp(3rem, 5vw, 5rem);
 
   --nav-menu-btn-font-size: clamp(1.8rem, 1.8vw, 2rem);
   --nav-menu-title-font-size: clamp(3.5rem, 5vw, 4rem);
@@ -37,7 +37,10 @@
 }
 
 html {
+  background: var(--main-white);
+  color: var(--main-black);
   font-size: 10px;
+  overflow-x: hidden;
 }
 svg {
   pointer-events: none;
@@ -57,14 +60,20 @@ svg {
   height: 0.3rem;
   background: var(--main-red);
 }
+.anim {
+  transition: all 750ms ease-in-out;
+}
 
 nav {
+  margin: auto;
   width: 100%;
   height: 10rem;
-  position: fixed;
+  position: sticky;
+  position: -webkit-sticky;
   top: 0;
   left: 0;
   background: var(--main-white);
+  z-index: 1;
 }
 nav > .frame {
   justify-content: space-between;
@@ -107,7 +116,7 @@ nav > .frame {
   width: max(20vw, 25rem);
   justify-content: space-evenly;
   position: relative;
-  left: clamp(0rem, 2vw, 3vw);
+  left: clamp(0rem, 3vw, 3vw);
 }
 .holder.link-btns > .github-btn {
   width: 4rem;
@@ -153,6 +162,7 @@ nav > .frame {
     display: flex;
     justify-content: center;
     align-items: center;
+    transform: translate(1rem, 0);
     background: var(--main-white);
   }
   .nav-menu-btn:hover,
@@ -188,7 +198,7 @@ nav > .frame {
   left: 0;
   transform: translate(100vw, 0);
   background: var(--fade-grey);
-  z-index: 1;
+  z-index: 2;
 }
 .nav-menu {
   padding: 1rem;
@@ -198,13 +208,10 @@ nav > .frame {
   right: 0;
   transform: translate(100vw, 0);
   background: var(--main-white);
-  z-index: 1;
+  z-index: 2;
 }
 .show-nav-menu {
   transform: translate(0vw, 0);
-}
-.anim {
-  transition: transform 750ms ease-in-out;
 }
 .nav-menu > .close-menu-btn {
   width: 4rem;
@@ -316,6 +323,7 @@ nav > .frame {
 }
 
 footer {
+  margin: auto;
   width: 100%;
   height: 10rem;
   background: var(--main-white);
