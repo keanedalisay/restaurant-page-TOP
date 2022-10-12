@@ -25,6 +25,12 @@
 
   --nav-menu-btn-font-size: clamp(1.8rem, 1.8vw, 2rem);
   --nav-menu-title-font-size: clamp(3.5rem, 5vw, 4rem);
+
+  --holder-label-font-size: clamp(2rem, 6.5vw, 4rem);
+  --item-label-font-size: clamp(1.8rem, 2vw, 2rem);
+  --item-btn-width: clamp(8rem, 8vw, 10rem);
+  --item-btn-height: clamp(3rem, 3vw, 3.5rem);
+  --item-btn-font-size: clamp(1.5rem, 1.5vw, 1.6rem);
 }
 
 *,
@@ -61,7 +67,7 @@ svg {
   background: var(--main-red);
 }
 .anim {
-  transition: all 750ms ease-in-out;
+  transition: all 250ms ease-in-out;
 }
 
 nav {
@@ -320,6 +326,261 @@ nav > .frame {
 .holder.link-menu-btns > .order-btn > svg,
 .holder.link-menu-btns > .order-btn > span {
   margin-left: 2.8rem;
+}
+
+main {
+  margin: auto;
+  width: 100%;
+  height: 100%;
+  background: var(--main-white);
+}
+main > .frame {
+  justify-content: center;
+  align-items: center;
+  flex-flow: column wrap;
+}
+.img-slider {
+  width: 100%;
+  height: max(75vh, 25rem);
+  position: relative;
+}
+.img-slide-one,
+.img-slide-two {
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  object-fit: cover;
+}
+.img-slide-one {
+  position: absolute;
+}
+.show-img {
+  opacity: 1;
+}
+.slide {
+  width: 5rem;
+  height: 5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--fade-red);
+  border-radius: 50%;
+  fill: var(--main-white);
+}
+.slide > svg {
+  width: 4rem;
+  height: 4rem;
+}
+@media only screen and (min-width: 600px) {
+  .slide {
+    width: 6rem;
+    height: 6rem;
+  }
+  .slide > svg {
+    width: 5rem;
+    height: 5rem;
+  }
+}
+@media only screen and (min-width: 1200px) {
+  .slide {
+    width: 7rem;
+    height: 7rem;
+  }
+  .slide > svg {
+    width: 6rem;
+    height: 6rem;
+  }
+}
+.slide:hover,
+.slide:focus,
+.slide:active {
+  background: var(--main-white);
+  border-radius: 50%;
+  fill: var(--main-red);
+  cursor: pointer;
+}
+.slide.left-btn {
+  position: absolute;
+  top: 42%;
+  left: 2%;
+}
+.slide.left-btn > svg {
+  transform: rotate(180deg) translate(0.1rem, 0);
+}
+.slide.right-btn {
+  position: absolute;
+  top: 42%;
+  right: 2%;
+}
+.slide.right-btn > svg {
+  transform: translate(0.1rem, 0);
+}
+.holder.label {
+  margin: max(3vh, 3rem) 0;
+  padding: 2rem 3rem;
+  width: min(35rem, 70%);
+  justify-content: center;
+  border: 0.3rem solid var(--main-red);
+  border-radius: 50%;
+}
+.subtitle {
+  text-align: center;
+  font-family: "Kaushan Script", Cambria, Cochin, Georgia, Times,
+    "Times New Roman", serif;
+  font-size: var(--holder-label-font-size);
+}
+.holder.feat-items {
+  display: grid;
+  justify-items: center;
+  align-content: center;
+  grid-template-columns: auto;
+}
+@media only screen and (min-width: 750px) {
+  .holder.feat-items {
+    justify-content: center;
+    align-items: center;
+    grid-template-columns: repeat(2, 40%);
+  }
+}
+@media only screen and (min-width: 1200px) {
+  .holder.feat-items {
+    justify-content: center;
+    align-items: center;
+    grid-template-columns: repeat(3, 30%);
+  }
+}
+.card.item {
+  margin: max(2vh, 2rem) 0;
+  width: clamp(20rem, 80%, 32.5rem);
+  height: clamp(12rem, 80%, 15rem);
+  display: flex;
+  flex-flow: row nowrap;
+  border-radius: 2rem;
+  box-shadow: 0rem 0rem 0.2rem var(--fade-red);
+}
+.card.item:hover,
+.card.item:focus {
+  box-shadow: 0rem 0rem 0.5rem var(--fade-red);
+}
+.holder.item-img {
+  width: 50%;
+}
+.holder.item-info {
+  width: 50%;
+  padding: 1rem;
+  flex-flow: column wrap;
+  justify-content: center;
+}
+.holder.item-info > .item-label {
+  margin-bottom: 10%;
+  text-align: center;
+  font-family: "Kaushan Script", Cambria, Cochin, Georgia, Times,
+    "Times New Roman", serif;
+  font-size: var(--item-label-font-size);
+}
+.holder.item-info > .order-btn {
+  width: var(--item-btn-width);
+  height: var(--item-btn-height);
+  background: var(--main-red);
+  border-radius: 2rem;
+  color: var(--main-white);
+  font-family: "Kaushan Script", Cambria, Cochin, Georgia, Times,
+    "Times New Roman", serif;
+  font-size: var(--item-btn-font-size);
+}
+.holder.item-info > .order-btn:hover,
+.holder.item-info > .order-btn:focus,
+.holder.item-info > .order-btn:active {
+  background: var(--main-white);
+  border: 0.1rem solid var(--main-red);
+  color: var(--main-red);
+  cursor: pointer;
+}
+.holder.tribute {
+  width: min(100%, 90rem);
+  flex-flow: column wrap;
+  justify-content: center;
+  align-items: center;
+}
+.holder.trib-img {
+  margin-bottom: 3vw;
+  justify-content: center;
+}
+@media only screen and (min-width: 650px) {
+  .holder.tribute {
+    flex-flow: row wrap;
+    justify-content: space-evenly;
+  }
+  .holder.trib-img {
+    margin-bottom: 0;
+  }
+}
+.holder.trib-img > img {
+  width: clamp(20rem, 30vw, 30rem);
+  height: clamp(20rem, 30vw, 30rem);
+  border: 0.3rem solid var(--main-red);
+  border-radius: 50%;
+  object-fit: cover;
+}
+.holder.trib-mes {
+  width: min(90%, 30rem);
+  flex-flow: column wrap;
+}
+.holder.conv-lang-btn {
+  margin-bottom: min(3vw, 2rem);
+  width: clamp(10rem, 15vw, 15rem);
+  height: clamp(3rem, 5vw, 3.5rem);
+}
+.conv-fil-btn,
+.conv-eng-btn {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--main-white);
+  font-family: "Kaushan Script", Cambria, Cochin, Georgia, Times,
+    "Times New Roman", serif;
+  font-size: clamp(1.5rem, 2vw, 1.8rem);
+  text-align: center;
+}
+.conv-fil-btn {
+  border-radius: 2rem 0 0 2rem;
+}
+.conv-eng-btn {
+  border-radius: 0 2rem 2rem 0;
+}
+.conv-fil-btn:hover,
+.conv-fil-btn:focus,
+.conv-fil-btn:active,
+.conv-eng-btn:hover,
+.conv-eng-btn:focus,
+.conv-eng-btn:active {
+  cursor: pointer;
+}
+.slctd-lang {
+  background: var(--main-red);
+  color: var(--main-white);
+}
+.holder.quote {
+  padding: 1rem;
+  flex-flow: column wrap;
+  background: var(--main-red);
+  border-radius: 2rem;
+  color: var(--main-white);
+}
+.quote-mes {
+  text-align: center;
+  font-family: Helvetica, Arial, sans-serif;
+  font-style: italic;
+  line-height: 2.5rem;
+  font-size: clamp(1.2rem, 2vw, 1.5rem);
+}
+.quote-author {
+  margin-top: 3%;
+  font-family: "Kaushan Script", Cambria, Cochin, Georgia, Times,
+    "Times New Roman", serif;
+  font-size: clamp(1.8rem, 2vw, 2rem);
 }
 
 footer {
