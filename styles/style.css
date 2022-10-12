@@ -47,6 +47,7 @@ html {
   color: var(--main-black);
   font-size: 10px;
   overflow-x: hidden;
+  overflow-y: auto;
 }
 svg {
   pointer-events: none;
@@ -464,6 +465,19 @@ main > .frame {
 }
 .holder.item-img {
   width: 50%;
+  justify-content: center;
+}
+.holder.item-img > object {
+  width: 100%;
+  height: 100%;
+}
+.holder.item-img > .jumbo {
+  width: 90%;
+  height: 90%;
+}
+.holder.item-img > .reg {
+  width: 80%;
+  height: 80%;
 }
 .holder.item-info {
   width: 50%;
