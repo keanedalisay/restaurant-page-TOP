@@ -1,7 +1,7 @@
 export function slctrEvent(el, event, slctr, handler) {
   el.addEventListener(event, (e) => {
     if (e.target.matches(slctr)) {
-      handler();
+      handler(e.target);
     }
   });
 }
@@ -140,16 +140,16 @@ export function createHomeFrame() {
             <img src="../img/claude-yap.jpg" alt="Claude Yap posing for a picture while holding a Queen Siopao.">
         </div>
         <div class="holder trib-mes">
-            <div class="holder conv-lang-btn">
-                <div class="anim conv-fil-btn slctd-lang" data-app="anim conv-eng-btn" tabindex="0">
-                    <span>Fil</span>
-                </div>
-                <div class="conv-eng-btn" data-app="conv-eng-btn" tabindex="0">
-                    <span>Eng</span>
-                </div>
+            <div class="holder conv-lang-btn" data-app="conv-lang-btn">
+                <button class="conv-fil-btn slctd-lang" data-app="conv-fil-btn" tabindex="0">
+                    Fil
+                </button>
+                <button class="conv-eng-btn" data-app="conv-eng-btn" tabindex="0">
+                    Eng
+                </button>
             </div>
             <div class="holder quote">
-                <span class="quote-mes">Huwag kang mag-give up, dapat masaya ka lagi. Kasi pagmasaya ka,
+                <span class="quote-mes" data-app="quote-mes">Huwag kang mag-give up, dapat masaya ka lagi. Kasi pagmasaya ka,
                     nagbibigay
                     ka ng positive
                     outlook sa lahat ng tao.</span>
