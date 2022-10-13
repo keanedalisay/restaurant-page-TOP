@@ -1,45 +1,70 @@
+import {
+  slctrEvent,
+  createImgSlider,
+  createHomeFrame,
+  createMenuFrame,
+  createLocationFrame,
+} from "./helpers.js";
+
 const App = {
   slctr: {
     overlay: document.querySelector("[data-app='overlay']"),
     navBar: document.querySelector("[data-app='nav-bar']"),
     navMenu: document.querySelector("[data-app='nav-menu']"),
+
+    homeBtns: document.querySelectorAll("[data-app='home-btn']"),
+    menuBtns: document.querySelectorAll("[data-app='menu-btn']"),
+    locaBtns: document.querySelectorAll("[data-app='loca-btn']"),
+
+    main: document.querySelector('[data-app="main"]'),
     toggleNavMenu() {
       App.slctr.overlay.classList.toggle("show-nav-menu");
       App.slctr.navMenu.classList.toggle("show-nav-menu");
     },
-  },
-  slctrEvent(el, event, slctr, handler) {
-    el.addEventListener(event, (e) => {
-      if (e.target.matches(slctr)) {
-        handler();
-      }
-    });
+    displayHomeContent() {
+      App.slctr.main.innerHTML = "";
+      App.slctr.main.appendChild(createImgSlider());
+      App.slctr.main.appendChild(createHomeFrame());
+    },
+    displayMenuContent() {
+      App.slctr.main.innerHTML = "";
+      App.slctr.main.appendChild(createMenuFrame());
+    },
+    displayLocationContent() {
+      App.slctr.main.innerHTML = "";
+      App.slctr.main.appendChild(createLocationFrame());
+    },
   },
   bindSlctrEvents() {
-    App.slctrEvent(
+    slctrEvent(
       App.slctr.navBar,
       "click",
       "[data-app='nav-menu-btn']",
       App.slctr.toggleNavMenu
     );
-    App.slctrEvent(
+    slctrEvent(
       App.slctr.navMenu,
       "click",
       "[data-app='close-menu-btn']",
       App.slctr.toggleNavMenu
     );
   },
-  render() {
-    App.bindSlctrEvents();
-  },
   init() {
-    App.render();
+    App.slctr.homeBtns.forEach((btn) => {
+      btn.addEventListener("click", App.slctr.displayHomeContent);
+    });
+
+    App.slctr.menuBtns.forEach((btn) => {
+      btn.addEventListener("click", App.slctr.displayMenuContent);
+    });
+
+    App.slctr.locaBtns.forEach((btn) => {
+      btn.addEventListener("click", App.slctr.displayLocationContent);
+    });
+
+    App.slctr.displayHomeContent();
+    App.bindSlctrEvents();
   },
 };
 
 App.init();
-// add event listener to both navBar and navMenu
-// use that event listener to catch the desired child of those elements
-// by means of delegation
-
-// execute the handler meant for the element catched
