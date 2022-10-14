@@ -1,9 +1,43 @@
-export function slctrEvent(el, event, slctr, handler) {
+export function delegateEvent(el, event, slctr, handler) {
   el.addEventListener(event, (e) => {
     if (e.target.matches(slctr)) {
       handler(e.target);
     }
   });
+}
+
+export class SliderStore {
+  constructor() {
+    this.imgs = [
+      `../img/roberto's-claude-smile.jpg`,
+      `../img/roberto's-food-platter.jpg`,
+      `../img/roberto's-lumpia.jpg`,
+      `../img/roberto's-meatballs.jpg`,
+      `../img/roberto's-siopao.jpg`,
+    ];
+    this.imgCount = 0;
+  }
+  slideImg(slideDirection) {
+    const imgSlideOne = document.querySelector(`[data-app='img-slide-one']`);
+    const imgSlideTwo = document.querySelector(`[data-app='img-slide-two']`);
+
+    slideDirection === "Left" ? this.imgCount-- : this.imgCount++;
+
+    if (this.imgCount > this.imgs.length - 1)
+      this.imgCount = this.imgs.length - 1;
+    else if (this.imgCount < 0) this.imgCount = 0;
+
+    if (this.imgCount % 2 === 0) {
+      imgSlideOne.setAttribute("src", this.imgs[this.imgCount]);
+      imgSlideOne.classList.add("show-img");
+      imgSlideTwo.classList.remove("show-img");
+      return;
+    }
+    imgSlideTwo.setAttribute("src", this.imgs[this.imgCount]);
+    imgSlideTwo.classList.add("show-img");
+    imgSlideOne.classList.remove("show-img");
+    return;
+  }
 }
 
 function insertHTML(el, html) {
@@ -18,8 +52,7 @@ export function createImgSlider() {
 
   insertHTML(
     sliderHolder,
-    `<div class="img-slider" data-app="img-slider">
-    <img class="img-slide-one anim show-img" data-app="img-slide-one" src="../img/roberto's-claude-smile.jpg"
+    ` <img class="img-slide-one anim show-img" data-app="img-slide-one" src="../img/roberto's-claude-smile.jpg"
         alt="Claude Yap, one of the owners of Roberto's, can be seen smiling while serving customers.">
     <img class="img-slide-two anim" data-app="img-slide-two" src="../img/roberto's-food-platter.jpg"
         alt="Claude Yap, one of the owners of Roberto's, can be seen smiling while serving customers.">
@@ -48,8 +81,7 @@ export function createImgSlider() {
                     d="m254.86 608.81c2.5078 2.5273 5.9141 3.957 9.4727 3.9805 3.5703 0.03125 6.9961-1.4062 9.4688-3.9805l223.34-223.34c2.5312-2.5 3.957-5.9102 3.957-9.4727 0-3.5586-1.4258-6.9688-3.957-9.4688l-223.34-223.39c-2.4805-2.6523-5.9297-4.1836-9.5625-4.2422-3.6328-0.0625-7.1328 1.3555-9.6992 3.9219-2.5703 2.5703-3.9844 6.0703-3.9258 9.6992 0.0625 3.6328 1.5938 7.0859 4.2461 9.5664l213.87 213.91-213.87 213.87c-2.5234 2.5078-3.9414 5.9141-3.9414 9.4727 0 3.5547 1.418 6.9648 3.9414 9.4688z" />
             </g>
         </svg>
-    </button>
-</div>`
+    </button>`
   );
   return sliderHolder;
 }

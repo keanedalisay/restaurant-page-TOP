@@ -1,10 +1,13 @@
 import {
-  slctrEvent,
+  delegateEvent,
+  SliderStore,
   createImgSlider,
   createHomeFrame,
   createMenuFrame,
   createLocationFrame,
 } from "./helpers.js";
+
+const Slider = new SliderStore();
 
 const App = {
   slctr: {
@@ -19,9 +22,31 @@ const App = {
 
     main: document.querySelector('[data-app="main"]'),
 
+    displayHomeContent() {
+      App.slctr.main.innerHTML = "";
+      App.slctr.main.appendChild(createImgSlider());
+      App.slctr.main.appendChild(createHomeFrame());
+
+      Slider.imgCount = 0;
+    },
+    displayMenuContent() {
+      App.slctr.main.innerHTML = "";
+      App.slctr.main.appendChild(createMenuFrame());
+    },
+    displayLocationContent() {
+      App.slctr.main.innerHTML = "";
+      App.slctr.main.appendChild(createLocationFrame());
+    },
     toggleNavMenu() {
       App.slctr.overlay.classList.toggle("show-nav-menu");
       App.slctr.navMenu.classList.toggle("show-nav-menu");
+    },
+    toggleSlider(el) {
+      const slideLeftBtn = document.querySelector(
+        `[data-app='slide-left-btn']`
+      );
+
+      el === slideLeftBtn ? Slider.slideImg("Left") : Slider.slideImg("Right");
     },
     translateQuote(el) {
       const convFilBtn = document.querySelector(`[data-app='conv-fil-btn']`);
@@ -42,30 +67,27 @@ const App = {
       quoteMes.textContent = `Huwag kang mag-give up, dapat masaya ka lagi. Kasi pagmasaya ka, nagbibigay ka ng positive outlook sa lahat ng tao.`;
       return;
     },
-    displayHomeContent() {
-      App.slctr.main.innerHTML = "";
-      App.slctr.main.appendChild(createImgSlider());
-      App.slctr.main.appendChild(createHomeFrame());
-
-      App.bindSlctrEvents();
-    },
-    displayMenuContent() {
-      App.slctr.main.innerHTML = "";
-      App.slctr.main.appendChild(createMenuFrame());
-    },
-    displayLocationContent() {
-      App.slctr.main.innerHTML = "";
-      App.slctr.main.appendChild(createLocationFrame());
-    },
   },
-  bindSlctrEvents() {
-    slctrEvent(
+  bindDelegEvents() {
+    delegateEvent(
+      App.slctr.main,
+      "click",
+      `[data-app='slide-left-btn']`,
+      App.slctr.toggleSlider
+    );
+    delegateEvent(
+      App.slctr.main,
+      "click",
+      `[data-app='slide-right-btn']`,
+      App.slctr.toggleSlider
+    );
+    delegateEvent(
       App.slctr.main,
       "click",
       "[data-app='conv-fil-btn']",
       App.slctr.translateQuote
     );
-    slctrEvent(
+    delegateEvent(
       App.slctr.main,
       "click",
       "[data-app='conv-eng-btn']",
@@ -89,7 +111,7 @@ const App = {
     });
 
     App.slctr.displayHomeContent();
-    App.bindSlctrEvents();
+    App.bindDelegEvents();
   },
 };
 
