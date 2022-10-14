@@ -15,7 +15,11 @@ Features:
 
 Feel free to visit through the link below:
 
+https://keanedalisay.github.io/restaurant-page-TOP/
+
 And here is a preview of it:
+
+![image](https://user-images.githubusercontent.com/101083161/195772100-d2c07557-cfe5-45cb-bf8c-81fa03a8df96.png)
 
 ## License
 
