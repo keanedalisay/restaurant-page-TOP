@@ -9,11 +9,11 @@ export function delegateEvent(el, event, slctr, handler) {
 export class SliderStore {
   constructor() {
     this.imgs = [
-      `../dist/img/roberto's-claude-smile.jpg`,
-      `../dist/img/roberto's-food-platter.jpg`,
-      `../dist/img/roberto's-lumpia.jpg`,
-      `../dist/img/roberto's-meatballs.jpg`,
-      `../dist/img/roberto's-siopao.jpg`,
+      `img/roberto's-claude-smile.jpg`,
+      `img/roberto's-food-platter.jpg`,
+      `img/roberto's-lumpia.jpg`,
+      `img/roberto's-meatballs.jpg`,
+      `img/roberto's-siopao.jpg`,
     ];
     this.imgCount = 0;
   }
@@ -52,9 +52,9 @@ export function createImgSlider() {
 
   insertHTML(
     sliderHolder,
-    ` <img class="img-slide-one anim show-img" data-app="img-slide-one" src="../dist/img/roberto's-claude-smile.jpg"
+    ` <img class="img-slide-one anim show-img" data-app="img-slide-one" src="img/roberto's-claude-smile.jpg"
         alt="Claude Yap, one of the owners of Roberto's, can be seen smiling while serving customers.">
-    <img class="img-slide-two anim" data-app="img-slide-two" src="../dist/img/roberto's-food-platter.jpg"
+    <img class="img-slide-two anim" data-app="img-slide-two" src="img/roberto's-food-platter.jpg"
         alt="Claude Yap, one of the owners of Roberto's, can be seen smiling while serving customers.">
     <button class="slide left-btn" data-app="slide-left-btn">
         <svg width="30" height="30" version="1.1" viewBox="0 0 752 752" xmlns="http://www.w3.org/2000/svg">
@@ -99,7 +99,7 @@ export function createHomeFrame() {
     <div class="holder feat-items">
         <div class="card item" tabindex="0">
             <div class="holder item-img">
-                <object data="../dist/img/queen-siopao.svg" type="text/svg+xml" tabindex="-1"></object>
+                <object data="img/queen-siopao.svg" type="text/svg+xml" tabindex="-1"></object>
             </div>
             <div class="holder item-info">
                 <span class="item-label">Queen Siopao</span>
@@ -110,7 +110,7 @@ export function createHomeFrame() {
         </div>
         <div class="card item" tabindex="0">
             <div class="holder item-img">
-                <object data="../dist/img/siopao.svg" type="text/svg+xml" tabindex="-1"></object>
+                <object data="img/siopao.svg" type="text/svg+xml" tabindex="-1"></object>
             </div>
             <div class="holder item-info">
                 <span class="item-label">King Siopao</span>
@@ -121,7 +121,7 @@ export function createHomeFrame() {
         </div>
         <div class="card item" tabindex="0">
             <div class="holder item-img">
-                <object data="../dist/img/meatball.svg" type="text/svg+xml" tabindex="-1"></object>
+                <object data="img/meatball.svg" type="text/svg+xml" tabindex="-1"></object>
             </div>
             <div class="holder item-info">
                 <span class="item-label">Meatballs on Stick</span>
@@ -132,7 +132,7 @@ export function createHomeFrame() {
         </div>
         <div class="card item" tabindex="0">
             <div class="holder item-img">
-                <object data="../dist/img/spring-rolls.svg" type="text/svg+xml" tabindex="-1"></object>
+                <object data="img/spring-rolls.svg" type="text/svg+xml" tabindex="-1"></object>
             </div>
             <div class="holder item-info">
                 <span class="item-label">Spring Rolls</span>
@@ -143,7 +143,7 @@ export function createHomeFrame() {
         </div>
         <div class="card item" tabindex="0">
             <div class="holder item-img">
-                <object data="../dist/img/halo-halo.svg" type="text/svg+xml" tabindex="-1"></object>
+                <object data="img/halo-halo.svg" type="text/svg+xml" tabindex="-1"></object>
             </div>
             <div class="holder item-info">
                 <span class="item-label">Halo-Halo</span>
@@ -154,7 +154,7 @@ export function createHomeFrame() {
         </div>
         <div class="card item" tabindex="0">
             <div class="holder item-img">
-                <object data="../dist/img/chkn-sotanghon.svg" type="text/svg+xml" tabindex="-1"></object>
+                <object data="img/chkn-sotanghon.svg" type="text/svg+xml" tabindex="-1"></object>
             </div>
             <div class="holder item-info">
                 <span class="item-label">Chicken Sotanghon</span>
@@ -169,7 +169,7 @@ export function createHomeFrame() {
     </div>
     <div class="holder tribute">
         <div class="holder trib-img">
-            <img src="../dist/img/claude-yap.jpg" alt="Claude Yap posing for a picture while holding a Queen Siopao.">
+            <img src="img/claude-yap.jpg" alt="Claude Yap posing for a picture while holding a Queen Siopao.">
         </div>
         <div class="holder trib-mes">
             <div class="holder conv-lang-btn" data-app="conv-lang-btn">
@@ -206,7 +206,7 @@ export function createMenuFrame() {
     <div class="holder feat-items">
         <div class="card item" tabindex="0">
             <div class="holder item-img">
-                <object data="../dist/img/queen-siopao.svg" type="text/svg+xml" tabindex="-1"></object>
+                <object data="img/queen-siopao.svg" type="text/svg+xml" tabindex="-1"></object>
             </div>
             <div class="holder item-info">
                 <span class="item-label">Queen Siopao</span>
@@ -217,7 +217,7 @@ export function createMenuFrame() {
         </div>
         <div class="card item" tabindex="0">
             <div class="holder item-img">
-                <object data="../dist/img/siopao.svg" type="text/svg+xml" tabindex="-1"></object>
+                <object data="img/siopao.svg" type="text/svg+xml" tabindex="-1"></object>
             </div>
             <div class="holder item-info">
                 <span class="item-label">King Siopao</span>
@@ -228,7 +228,7 @@ export function createMenuFrame() {
         </div>
         <div class="card item" tabindex="0">
             <div class="holder item-img">
-                <object class="jumbo" data="../dist/img/siopao.svg" type="text/svg+xml" tabindex="-1"></object>
+                <object class="jumbo" data="img/siopao.svg" type="text/svg+xml" tabindex="-1"></object>
             </div>
             <div class="holder item-info">
                 <span class="item-label">Jumbo Siopao</span>
@@ -239,7 +239,7 @@ export function createMenuFrame() {
         </div>
         <div class="card item" tabindex="0">
             <div class="holder item-img">
-                <object class="reg" data="../dist/img/siopao.svg" type="text/svg+xml" tabindex="-1"></object>
+                <object class="reg" data="img/siopao.svg" type="text/svg+xml" tabindex="-1"></object>
             </div>
             <div class="holder item-info">
                 <span class="item-label">Regular Siopao</span>
@@ -250,7 +250,7 @@ export function createMenuFrame() {
         </div>
         <div class="card item" tabindex="0">
             <div class="holder item-img">
-                <object data="../dist/img/meatball.svg" type="text/svg+xml" tabindex="-1"></object>
+                <object data="img/meatball.svg" type="text/svg+xml" tabindex="-1"></object>
             </div>
             <div class="holder item-info">
                 <span class="item-label">Meatballs on Stick</span>
@@ -261,7 +261,7 @@ export function createMenuFrame() {
         </div>
         <div class="card item" tabindex="0">
             <div class="holder item-img">
-                <object data="../dist/img/spring-rolls.svg" type="text/svg+xml" tabindex="-1"></object>
+                <object data="img/spring-rolls.svg" type="text/svg+xml" tabindex="-1"></object>
             </div>
             <div class="holder item-info">
                 <span class="item-label">Spring Rolls</span>
@@ -272,7 +272,7 @@ export function createMenuFrame() {
         </div>
         <div class="card item" tabindex="0">
             <div class="holder item-img">
-                <object data="../dist/img/halo-halo.svg" type="text/svg+xml" tabindex="-1"></object>
+                <object data="img/halo-halo.svg" type="text/svg+xml" tabindex="-1"></object>
             </div>
             <div class="holder item-info">
                 <span class="item-label">Halo-Halo</span>
@@ -283,7 +283,7 @@ export function createMenuFrame() {
         </div>
         <div class="card item" tabindex="0">
             <div class="holder item-img">
-                <object data="../dist/img/lomi.svg" type="text/svg+xml" tabindex="-1"></object>
+                <object data="img/lomi.svg" type="text/svg+xml" tabindex="-1"></object>
             </div>
             <div class="holder item-info">
                 <span class="item-label">Lomi</span>
@@ -294,7 +294,7 @@ export function createMenuFrame() {
         </div>
         <div class="card item" tabindex="0">
             <div class="holder item-img">
-                <object data="../dist/img/chkn-sotanghon.svg" type="text/svg+xml" tabindex="-1"></object>
+                <object data="img/chkn-sotanghon.svg" type="text/svg+xml" tabindex="-1"></object>
             </div>
             <div class="holder item-info">
                 <span class="item-label">Chicken Sotanghon</span>
@@ -305,7 +305,7 @@ export function createMenuFrame() {
         </div>
         <div class="card item" tabindex="0">
             <div class="holder item-img">
-                <object data="../dist/img/chkn-sotanghon.svg" type="text/svg+xml" tabindex="-1"></object>
+                <object data="img/chkn-sotanghon.svg" type="text/svg+xml" tabindex="-1"></object>
             </div>
             <div class="holder item-info">
                 <span class="item-label">Chicken Sotanghon</span>
@@ -316,7 +316,7 @@ export function createMenuFrame() {
         </div>
         <div class="card item" tabindex="0">
             <div class="holder item-img">
-                <object data="../dist/img/chkn-bihon.svg" type="text/svg+xml" tabindex="-1"></object>
+                <object data="img/chkn-bihon.svg" type="text/svg+xml" tabindex="-1"></object>
             </div>
             <div class="holder item-info">
                 <span class="item-label">Chicken Bihon</span>
@@ -327,7 +327,7 @@ export function createMenuFrame() {
         </div>
         <div class="card item" tabindex="0">
             <div class="holder item-img">
-                <object data="../dist/img/fried-chicken.svg" type="text/svg+xml" tabindex="-1"></object>
+                <object data="img/fried-chicken.svg" type="text/svg+xml" tabindex="-1"></object>
             </div>
             <div class="holder item-info">
                 <span class="item-label">Fried Chicken</span>
@@ -338,7 +338,7 @@ export function createMenuFrame() {
         </div>
         <div class="card item" tabindex="0">
             <div class="holder item-img">
-                <object data="../dist/img/pancit.svg" type="text/svg+xml" tabindex="-1"></object>
+                <object data="img/pancit.svg" type="text/svg+xml" tabindex="-1"></object>
             </div>
             <div class="holder item-info">
                 <span class="item-label">Pancit</span>
@@ -349,7 +349,7 @@ export function createMenuFrame() {
         </div>
         <div class="card item" tabindex="0">
             <div class="holder item-img">
-                <object data="../dist/img/rice.svg" type="text/svg+xml" tabindex="-1"></object>
+                <object data="img/rice.svg" type="text/svg+xml" tabindex="-1"></object>
             </div>
             <div class="holder item-info">
                 <span class="item-label">Rice</span>
